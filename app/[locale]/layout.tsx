@@ -43,12 +43,14 @@ export default async function LocaleLayout({
                 <div className="absolute right-0 top-40 h-80 w-80 rounded-full bg-emerald-500/10 blur-[100px]" />
             </div>
 
-            {/* Main Content */}
-            <div className="relative mx-auto max-w-6xl px-4 py-6">
-                <Header locale={validLocale} translations={translations} />
-                <main className="mt-8">
-                    {children}
-                </main>
+            {/* Main Content - Properly Centered */}
+            <div className="relative w-full">
+                <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
+                    <Header locale={validLocale} translations={translations} />
+                    <main className="mt-8">
+                        {children}
+                    </main>
+                </div>
             </div>
 
             {/* Modal Slot (Parallel Route) */}

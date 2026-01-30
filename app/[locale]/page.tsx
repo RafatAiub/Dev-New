@@ -18,10 +18,10 @@ export default async function HomePage({ params }: HomePageProps) {
     const { home } = translations;
 
     return (
-        <>
+        <div className="w-full">
             {/* Section Header */}
-            <div className="mb-6">
-                <h2 className="text-lg font-bold text-white">
+            <div className="mb-5">
+                <h2 className="text-base font-bold text-white">
                     {home.trendingToday}
                 </h2>
                 <p className="mt-0.5 text-xs text-zinc-500">
@@ -31,6 +31,6 @@ export default async function HomePage({ params }: HomePageProps) {
 
             {/* News Grid */}
             <NewsGrid news={news} locale={validLocale} />
-        </>
+        </div>
     );
 }
