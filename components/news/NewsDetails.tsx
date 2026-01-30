@@ -62,6 +62,35 @@ export default function NewsDetails({ news, translations }: NewsDetailsProps) {
 
             {/* Sidebar */}
             <aside className="space-y-6">
+
+                {/* Author Card */}
+                <div className="rounded-2xl bg-[#10131a] border border-white/[0.08] p-6">
+                    <h2 className="text-base font-bold text-white mb-5">{t.author}</h2>
+                    <div className="flex items-center gap-4">
+                        <div className="rounded-full bg-gradient-to-br from-cyan-400 to-emerald-400 p-[2px]">
+                            <img
+                                src={getImagePath(news.author_avatar)}
+                                alt={news.author_name}
+                                className="h-14 w-14 rounded-full object-cover"
+                            />
+                        </div>
+                        <div>
+                            <p className="text-base font-semibold text-white">
+                                {news.author_name}
+                            </p>
+                            <p className="text-sm text-cyan-400 mt-0.5">Content Creator</p>
+                        </div>
+                    </div>
+                    <div className="mt-5 pt-5 border-t border-white/10">
+                        <p className="text-sm text-zinc-400">
+                            {t.publishedOn}{' '}
+                            <time dateTime={news.published_date} className="text-white font-medium">
+                                {formatFullDate(news.published_date)}
+                            </time>
+                        </p>
+                    </div>
+                </div>
+
                 {/* Engagement Stats Card */}
                 <div className="rounded-2xl bg-[#10131a] border border-white/[0.08] p-6">
                     <h2 className="text-base font-bold text-white mb-5">{t.engagement}</h2>
@@ -125,34 +154,6 @@ export default function NewsDetails({ news, translations }: NewsDetailsProps) {
                                 #{tag}
                             </span>
                         ))}
-                    </div>
-                </div>
-
-                {/* Author Card */}
-                <div className="rounded-2xl bg-[#10131a] border border-white/[0.08] p-6">
-                    <h2 className="text-base font-bold text-white mb-5">{t.author}</h2>
-                    <div className="flex items-center gap-4">
-                        <div className="rounded-full bg-gradient-to-br from-cyan-400 to-emerald-400 p-[2px]">
-                            <img
-                                src={getImagePath(news.author_avatar)}
-                                alt={news.author_name}
-                                className="h-14 w-14 rounded-full object-cover"
-                            />
-                        </div>
-                        <div>
-                            <p className="text-base font-semibold text-white">
-                                {news.author_name}
-                            </p>
-                            <p className="text-sm text-cyan-400 mt-0.5">Content Creator</p>
-                        </div>
-                    </div>
-                    <div className="mt-5 pt-5 border-t border-white/10">
-                        <p className="text-sm text-zinc-400">
-                            {t.publishedOn}{' '}
-                            <time dateTime={news.published_date} className="text-white font-medium">
-                                {formatFullDate(news.published_date)}
-                            </time>
-                        </p>
                     </div>
                 </div>
             </aside>
