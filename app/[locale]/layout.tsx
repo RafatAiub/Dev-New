@@ -43,10 +43,15 @@ export default async function LocaleLayout({
                 <div className="absolute right-0 top-40 h-80 w-80 rounded-full bg-emerald-500/10 blur-[100px]" />
             </div>
 
-            {/* Main Content - Full Width with Padding */}
-            <div className="relative w-full px-4 sm:px-6 lg:px-10 xl:px-16 py-6">
-                <Header locale={validLocale} translations={translations} />
-                <main className="mt-8 w-full">
+            {/* Main Content Container */}
+            <div className="relative w-full">
+                {/* Header Section - py-4 for vertical spacing, px for horizontal */}
+                <header className="w-full px-6 py-4 sm:px-8 lg:px-12">
+                    <Header locale={validLocale} translations={translations} />
+                </header>
+
+                {/* Main Content Section - consistent horizontal padding, proper top margin */}
+                <main className="w-full px-6 pt-4 pb-8 sm:px-8 lg:px-12">
                     {children}
                 </main>
             </div>

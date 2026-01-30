@@ -18,19 +18,19 @@ export default async function HomePage({ params }: HomePageProps) {
     const { home } = translations;
 
     return (
-        <div className="w-full">
-            {/* Section Header */}
-            <div className="mb-5">
-                <h2 className="text-base font-bold text-white">
+        <section className="w-full">
+            {/* Section Header - mb-6 for spacing before grid */}
+            <div className="mb-6">
+                <h2 className="text-lg font-bold text-white">
                     {home.trendingToday}
                 </h2>
-                <p className="mt-0.5 text-xs text-zinc-500">
+                <p className="mt-1 text-sm text-zinc-500">
                     {home.trendingDescription}
                 </p>
             </div>
 
             {/* News Grid */}
             <NewsGrid news={news} locale={validLocale} />
-        </div>
+        </section>
     );
 }
