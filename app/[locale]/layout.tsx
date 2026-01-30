@@ -2,7 +2,6 @@ import { ReactNode } from 'react';
 import type { Locale } from '@/types';
 import { getTranslations } from '@/lib/i18n';
 import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
 
 interface LocaleLayoutProps {
     children: ReactNode;
@@ -37,25 +36,19 @@ export default async function LocaleLayout({
     const translations = await getTranslations(validLocale);
 
     return (
-        <div className="relative overflow-hidden">
+        <div className="min-h-screen bg-[#0b0d12]">
             {/* Background Effects */}
-            <div className="pointer-events-none absolute inset-0">
-                <div
-                    className="absolute -left-32 top-10 h-80 w-80 rounded-full glow-effect"
-                />
-                <div
-                    className="absolute right-0 top-52 h-72 w-72 rounded-full glow-effect-subtle"
-                />
-                <div className="noise absolute inset-0" />
+            <div className="pointer-events-none fixed inset-0 overflow-hidden">
+                <div className="absolute -left-40 top-0 h-96 w-96 rounded-full bg-cyan-500/10 blur-[120px]" />
+                <div className="absolute right-0 top-40 h-80 w-80 rounded-full bg-emerald-500/10 blur-[100px]" />
             </div>
 
             {/* Main Content */}
-            <div className="relative mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+            <div className="relative mx-auto max-w-6xl px-4 py-6">
                 <Header locale={validLocale} translations={translations} />
-                <main className="mt-12">
+                <main className="mt-8">
                     {children}
                 </main>
-                <Footer translations={translations} />
             </div>
 
             {/* Modal Slot (Parallel Route) */}

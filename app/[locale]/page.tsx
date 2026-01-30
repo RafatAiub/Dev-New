@@ -19,16 +19,14 @@ export default async function HomePage({ params }: HomePageProps) {
 
     return (
         <>
-            {/* Page Header */}
-            <div className="flex flex-wrap items-center justify-between gap-4">
-                <div>
-                    <h2 className="text-xl font-semibold text-white">
-                        {home.trendingToday}
-                    </h2>
-                    <p className="mt-1 text-sm text-zinc-400">
-                        {home.trendingDescription}
-                    </p>
-                </div>
+            {/* Section Header */}
+            <div className="mb-6">
+                <h2 className="text-lg font-bold text-white">
+                    {home.trendingToday}
+                </h2>
+                <p className="mt-0.5 text-xs text-zinc-500">
+                    {home.trendingDescription}
+                </p>
             </div>
 
             {/* News Grid */}
