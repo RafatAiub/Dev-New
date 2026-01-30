@@ -36,21 +36,19 @@ export default async function LocaleLayout({
     const translations = await getTranslations(validLocale);
 
     return (
-        <div className="min-h-screen bg-[#0b0d12]">
+        <div className="min-h-screen w-full bg-[#0b0d12]">
             {/* Background Effects */}
             <div className="pointer-events-none fixed inset-0 overflow-hidden">
                 <div className="absolute -left-40 top-0 h-96 w-96 rounded-full bg-cyan-500/10 blur-[120px]" />
                 <div className="absolute right-0 top-40 h-80 w-80 rounded-full bg-emerald-500/10 blur-[100px]" />
             </div>
 
-            {/* Main Content - Properly Centered */}
-            <div className="relative w-full">
-                <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
-                    <Header locale={validLocale} translations={translations} />
-                    <main className="mt-8">
-                        {children}
-                    </main>
-                </div>
+            {/* Main Content - Full Width with Padding */}
+            <div className="relative w-full px-4 sm:px-6 lg:px-10 xl:px-16 py-6">
+                <Header locale={validLocale} translations={translations} />
+                <main className="mt-8 w-full">
+                    {children}
+                </main>
             </div>
 
             {/* Modal Slot (Parallel Route) */}
